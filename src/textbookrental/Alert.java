@@ -2,6 +2,7 @@ package textbookrental;
 
 
 	import java.time.LocalDate;
+	import java.util.Date;
 	import java.time.Period;
 	import java.util.ArrayList;
 	import java.util.HashSet;
@@ -27,22 +28,25 @@ package textbookrental;
 	    public ArrayList<Loan> getSoonOverdueLoans(Period period) {
 	        ArrayList<Loan> result = new ArrayList<Loan>();
 	        for (Patron patron : patron) {
-	            for (Loan loan : patron.getloanedTextBooks()) {
-	                if (loan.getDateOfLoan().plus(loan.getPeriod()).isAfter(LocalDate.now().minus(period))) {
+	             
+	                Loan loan = null;
+					if (loan.getDateOfLoan().plus(loan.getPeriod()).isAfter(LocalDate.now().minus(period))) {
 	                    result.add(loan);
 	                }
 	            }
-	        }
+	        
 	        return result;
-	    }
+	}
+	    
 
 	    public ArrayList<Loan> getAllLoans() {
-	        ArrayList<Loan> result = new ArrayList<loan>();
+	        Loan loan = null;
+			ArrayList<Loan> result = new ArrayList<Loan>();
 	        for (Patron patron : patron) {
-	            for (Loan loan : patron.getloanedTextBooks()) {
+	             
 	                    result.add(loan);
 	            }
-	        }
+	        
 	        return result;
 	    }
 	}
